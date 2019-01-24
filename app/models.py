@@ -4,8 +4,8 @@ from flask_login import UserMixin
 class User(UserMixin):
     # proxy for a database of users
     user_database = {
-        "JohnDoe": ("JohnDoe", "John"),
-        "JaneDoe": ("JaneDoe", "Jane")
+        "phuongnam": ("phuongnam", "123"),
+        "thiennhan": ("thiennhan", "qwerty")
     }
 
     def __init__(self, username, password):

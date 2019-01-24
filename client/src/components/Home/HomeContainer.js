@@ -10,12 +10,13 @@ class HomeContainer extends React.Component {
   }
 
   render() {
-    const { currentlySending, data, errorMessage } = this.props
-    return <HomeView currentlySending={currentlySending} data={data} errorMessage={errorMessage} />
+    const { currentlySending, data, errorMessage, username } = this.props
+    return <HomeView username={username} currentlySending={currentlySending} data={data} errorMessage={errorMessage} />
   }
 }
 
 const mapStateToProps = state => ({
+  username: state.formState.email,
   data: state.data.home,
   currentlySending: state.currentlySending,
   errorMessage: state.errorMessage
