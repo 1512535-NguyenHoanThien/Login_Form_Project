@@ -20,10 +20,25 @@ export const login = (username, password) => {
       body: JSON.stringify({ username, password })
     })
       .then(res => {
-        if (res.ok) return res.json()
-        else throw new Error(res.statusText)
-      })
-      .then(data => {
+        if (res.ok) { 
+          var token = '123456'
+          if (typeof(Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("tokenID", token);
+           // Retrieve
+            var token123= localStorage.getItem("tokenID");
+             console.log(token123)
+              console.log(res.json())
+            // return res.json()
+          }
+           else {
+             console.log("Sorry, your browser does not support Web Storage...");
+          }
+        }
+       else{
+         throw new Error(res.statusText)
+         }
+       }).then(data => {
         dispatch(sendingRequest(false))
         dispatch(setAuthState(true))
       })

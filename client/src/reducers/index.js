@@ -12,6 +12,7 @@ const initialState = {
     email: '',
     password: ''
   },
+  token: '',
   currentlySending: false,
   loadingAuth: false,
   loggedIn: false,
